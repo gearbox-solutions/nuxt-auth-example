@@ -7,11 +7,18 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .ts,.js,.vue ./components ./layouts ./pages",
+    "lint:fix": "eslint --ext .ts,.js,.vue ./components ./layouts ./pages --fix",
+    "prettier:write": "prettier --write \"{./components,./layouts,./pages}/**/*.{js,ts,vue}\""
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@gearbox-solutions/eslint-config-gbx": "^1.5.3"
   }
 }

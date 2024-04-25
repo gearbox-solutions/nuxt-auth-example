@@ -11,4 +11,9 @@ export default defineNuxtConfig({
       database: process.env.DB_DATABASE,
     },
   },
+  vite: {
+    build: {
+      target: "esnext",
+    },
+  },
 });

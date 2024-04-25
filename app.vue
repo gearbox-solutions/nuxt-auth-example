@@ -8,8 +8,14 @@ useHead({
     class: "bg-gray-700 text-gray-200",
   },
 });
+
+console.log("loading fresh");
 </script>
 <template>
+  <Head>
+    <Meta name="color-scheme" content="dark" />
+  </Head>
+
   <div>
     <NuxtLayout>
       <NuxtPage />

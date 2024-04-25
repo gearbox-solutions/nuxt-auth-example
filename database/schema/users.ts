@@ -1,6 +1,6 @@
 import { mysqlTable, serial, text, timestamp } from "drizzle-orm/mysql-core";
 
-export default users = mysqlTable("users", {
+export default mysqlTable("users", {
   id: serial("id"),
   name: text("name"),
   email: text("email"),

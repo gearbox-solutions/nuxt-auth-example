@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1714071074088,
+      "tag": "0000_acoustic_scarlet_witch",
+      "breakpoints": true
+    }
+  ]
+}

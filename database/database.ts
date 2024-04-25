@@ -3,13 +3,12 @@ import mysql from "mysql2/promise";
 
 const { database } = useRuntimeConfig();
 
-const connection = await mysql.createConnection({
+export const connection = await mysql.createConnection({
   host: database.host,
   port: database.port,
   database: database.database,
   user: database.username,
   password: database.password,
 });
-const db = drizzle(connection);
 
-export default db;
+export const db = drizzle(connction, { schema });

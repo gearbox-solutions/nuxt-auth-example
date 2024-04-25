@@ -14,11 +14,14 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
+    "drizzle-orm": "^0.30.9",
+    "mysql2": "^3.9.7",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@gearbox-solutions/eslint-config-gbx": "^1.5.3"
+    "@gearbox-solutions/eslint-config-gbx": "^1.5.3",
+    "drizzle-kit": "^0.20.17"
   }
 }

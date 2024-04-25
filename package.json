@@ -11,9 +11,10 @@
     "lint": "eslint --ext .ts,.js,.vue ./components ./layouts ./pages",
     "lint:fix": "eslint --ext .ts,.js,.vue ./components ./layouts ./pages --fix",
     "prettier:write": "prettier --write \"{./components,./layouts,./pages}/**/*.{js,ts,vue}\"",
-    "migration-generate": "drizzle-kit generate:mysql",
     "drizzle-studio": "drizzle-kit studio",
-    "drizzle-migrate": "jiti ./database/migrations/run.ts"
+    "drizzle-dev-push-schema": "drizzle-kit push:mysql",
+    "drizzle-migration-generate": "drizzle-kit generate:mysql",
+    "drizzle-run-migrations": "jiti ./database/migrations/run.ts"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",

@@ -3,7 +3,7 @@ import ContentWidthWrapper from "~/components/ContentWidthWrapper.vue";
 </script>
 
 <template>
-  <div class="bg-gray-900 text-white">
+  <div class="bg-gray-900">
     <ContentWidthWrapper>
       <div class="flex">
         <NuxtLink href="/" class="px-4 py-2 hover:bg-gray-800">Home</NuxtLink>

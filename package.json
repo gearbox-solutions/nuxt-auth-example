@@ -22,6 +22,7 @@
     "drizzle-orm": "^0.30.9",
     "mysql2": "^3.9.7",
     "nuxt": "^3.11.2",
+    "nuxt-auth-utils": "^0.0.24",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "c6b8a479-495b-458b-82de-5877ebdf1d4f",
+  "id": "6e26718e-46eb-48eb-b2e3-fda6ffc8857b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "users": {
@@ -9,9 +9,9 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "bigint",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": true
         },
         "name": {
@@ -23,7 +23,7 @@
         },
         "email": {
           "name": "email",
-          "type": "text",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -52,8 +52,22 @@
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "compositePrimaryKeys": {
+        "users_id": {
+          "name": "users_id",
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "columns": [
+            "email"
+          ]
+        }
+      }
     }
   },
   "schemas": {},

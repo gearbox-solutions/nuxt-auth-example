@@ -1,9 +1,9 @@
-import { mysqlTable, serial, text, timestamp } from "drizzle-orm/mysql-core";
+import { bigint, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 export default mysqlTable("users", {
-  id: serial("id"),
+  id: bigint("id", { mode: "number" }).autoincrement().primaryKey(),
   name: text("name"),
-  email: text("email"),
+  email: varchar("email", { length: 255 }).unique(),
   password: text("password"),
   createdAt: timestamp("created_at"),
   updatedAt: timestamp("updated_at"),

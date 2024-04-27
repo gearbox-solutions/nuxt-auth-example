@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
 
   const db = await getDatabase();
 
-  const passwordHash = await bcrypt.hash(body.password, 12);
+  const passwordHash = bcrypt.hashSync(body.password, 12);
   await db.insert(users).values({
     name: body.name,
     email: body.email,

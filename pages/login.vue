@@ -11,7 +11,7 @@ const loginForm = ref({
 </script>
 
 <template>
-  <div>
+  <ContentWidthContainer>
     <form action="/api/auth/login" method="post" class="space-y-2">
       <div class="flex gap-x-4">
         <label for="email">Email:</label>
@@ -34,5 +34,5 @@ const loginForm = ref({
 
       <button type="submit" class="rounded-md bg-gray-600 px-4 py-2">Login</button>
     </form>
-  </div>
+  </ContentWidthContainer>
 </template>

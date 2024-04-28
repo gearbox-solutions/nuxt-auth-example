@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import NavBar from "~/components/nav/NavBar.vue";
-import ContentWidthWrapper from "~/components/ContentWidthWrapper.vue";
+import ContentWidthContainer from "~/components/ContentWidthContainer.vue";
 </script>
 
 <template>
   <div>
     <NavBar />
 
-    <ContentWidthWrapper class="py-8">
+    <ContentWidthContainer class="py-8">
       <slot />
-    </ContentWidthWrapper>
+    </ContentWidthContainer>
   </div>
 </template>

@@ -3,20 +3,14 @@
 <template>
   <ContentWidthContainer>
     <form action="/api/register" method="post" class="space-y-2">
-      <div>
-        <input id="name" name="name" type="text" placeholder="John Doe" value="David Nahodyl" />
-      </div>
+      <LabeledInput label="Name" id="name" name="name" />
 
-      <div>
-        <input id="email" type="text" name="email" placeholder="someone@acme.com" value="david@gearboxgo.com" />
-      </div>
+      <LabeledInput label="Email" id="email" name="email" />
 
-      <div>
-        <input id="password" name="password" type="password" placeholder="Password" value="password" />
-      </div>
+      <LabeledInput label="Password" id="password" name="password" type="password" />
 
-      <div>
-        <button type="submit" class="rounded-md bg-gray-600 px-4 py-2">Register</button>
+      <div class="pt-2">
+        <ButtonPrimary type="submit">Register</ButtonPrimary>
       </div>
     </form>
   </ContentWidthContainer>

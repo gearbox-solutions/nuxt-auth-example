@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import ButtonPrimary from "~/components/ButtonPrimary.vue";
 
 const loginForm = ref({
   email: "david@gearboxgo.com",
@@ -10,26 +11,22 @@ const loginForm = ref({
 <template>
   <ContentWidthContainer>
     <form action="/api/auth/login" method="post" class="space-y-2">
-      <div class="flex gap-x-4">
-        <label for="email">Email:</label>
+      <div class="space-y-4">
+        <LabeledInput v-model="loginForm.email" name="email" id="email" label="Email" />
 
-        <input id="email" name="email" type="email" v-model="loginForm.email" required class="rounded-md px-2 py-1" />
-      </div>
-
-      <div class="flex gap-x-4">
-        <label for="password">Password:</label>
-
-        <input
-          id="password"
-          name="password"
-          type="password"
+        <LabeledInput
           v-model="loginForm.password"
+          name="password"
+          id="password"
+          label="Password"
+          type="password"
           required
-          class="rounded-md px-2 py-1"
         />
       </div>
 
-      <button type="submit" class="rounded-md bg-gray-600 px-4 py-2">Login</button>
+      <div class="pt-2">
+        <ButtonPrimary type="submit">Login</ButtonPrimary>
+      </div>
     </form>
   </ContentWidthContainer>
 </template>

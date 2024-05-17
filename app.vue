@@ -5,7 +5,7 @@ useHead({
     class: "dark",
   },
   bodyAttrs: {
-    class: "bg-gray-700 text-gray-200",
+    class: "bg-gray-800 text-gray-200",
   },
 });
 

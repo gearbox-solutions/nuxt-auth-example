@@ -19,18 +19,18 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
     "bcrypt": "^5.1.1",
-    "drizzle-orm": "^0.30.9",
+    "drizzle-orm": "^0.30.10",
     "mysql2": "^3.9.7",
-    "nuxt": "^3.11.2",
     "nuxt-auth-utils": "^0.0.24",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@gearbox-solutions/eslint-config-gbx": "^1.5.3",
     "@nuxt/kit": "^3.11.2",
     "dotenv": "^16.4.5",
-    "drizzle-kit": "^0.20.17",
-    "jiti": "^1.21.0"
+    "drizzle-kit": "^0.20.18",
+    "jiti": "^1.21.0",
+    "nuxt": "^3.11.2"
   }
 }

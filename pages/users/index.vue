@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const { data: users } = await useFetch("/api/users");
+
+definePageMeta({
+  middleware: ["redirect-if-not-authenticated"],
+});
 </script>
 
 <template>

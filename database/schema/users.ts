@@ -1,10 +1,10 @@
-import { bigint, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { bigint, mysqlTable, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 export default mysqlTable("users", {
   id: bigint("id", { mode: "number" }).autoincrement().primaryKey(),
-  name: text("name"),
+  name: varchar("name", { length: 255 }),
   email: varchar("email", { length: 255 }).unique(),
-  password: text("password"),
+  password: varchar("password", { length: 255 }),
   createdAt: timestamp("created_at"),
   updatedAt: timestamp("updated_at"),
 });

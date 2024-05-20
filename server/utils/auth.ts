@@ -16,7 +16,7 @@ async function login(event: H3Event<Request>, user: UserType) {
   });
 }
 
-async function user(event) {
+async function getCurrentUser(event) {
   const session = await getUserSession(event);
 
   const db = await getDatabase();
@@ -28,10 +28,12 @@ async function user(event) {
 async function attempt(event: H3Event<Request>, email: string, password: string) {
   const db = await getDatabase();
 
-  const user = (await db.select().from(users).where(eq(users.email, email)).limit(1))?.[0];
+  const foundUser = (
+    await db.select({ email: users.email, password: users.password }).from(users).where(eq(users.email, email)).limit(1)
+  )?.[0];
 
   // compare the password hash
-  if (!user || !bcrypt.compareSync(body.password, password)) {
+  if (!foundUser || !bcrypt.compareSync(body.password, password)) {
     // return an error if the user is not found or the password doesn't match
     throw createError({
       statusCode: 401,
@@ -40,12 +42,13 @@ async function attempt(event: H3Event<Request>, email: string, password: string)
   }
 
   // log in as the selected user
-  await login(event, user);
+  await login(event, foundUser);
 
   return true;
 }
 
 export default {
   login,
-  user,
+  user: getCurrentUser,
+  attempt,
 };

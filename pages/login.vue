@@ -30,18 +30,16 @@ async function submitForm() {
 <template>
   <ContentWidthContainer>
     <form class="space-y-2" @submit.prevent="submitForm">
-      <div class="space-y-4">
-        <LabeledInput v-model="loginForm.email" name="email" id="email" label="Email" />
+      <LabeledInput v-model="loginForm.email" name="email" id="email" label="Email" />
 
-        <LabeledInput
-          v-model="loginForm.password"
-          name="password"
-          id="password"
-          label="Password"
-          type="password"
-          required
-        />
-      </div>
+      <LabeledInput
+        v-model="loginForm.password"
+        name="password"
+        id="password"
+        label="Password"
+        type="password"
+        required
+      />
 
       <div class="pt-2">
         <ButtonPrimary type="submit">Login</ButtonPrimary>

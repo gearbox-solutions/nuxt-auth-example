@@ -12,7 +12,11 @@ export default defineEventHandler(async (event) => {
 
   // compare the password hash
   if (!user || !bcrypt.compareSync(body.password, user.password)) {
-    throw new Error("Invalid email or password");
+    // return an error if the user is not found or the password doesn't match
+    throw createError({
+      statusCode: 401,
+      statusMessage: "Invalid email or password",
+    });
   }
 
   // set the session

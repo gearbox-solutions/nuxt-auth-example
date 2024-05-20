@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   await requireUserLoggedIn(event);
 
   const db = await getDatabase();
-  // Send back the user
+  // Send back the list of users
   const userList = await db.select({ name: users.name, id: users.id }).from(users).limit(10);
 
   return userList;

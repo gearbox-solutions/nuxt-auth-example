@@ -3,8 +3,8 @@ import { ref } from "vue";
 import ButtonPrimary from "~/components/ButtonPrimary.vue";
 
 const loginForm = ref({
-  email: "david@gearboxgo.com",
-  password: "password",
+  email: "",
+  password: "",
 });
 </script>
 

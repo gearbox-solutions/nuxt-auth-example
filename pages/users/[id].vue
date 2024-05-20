@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import dayjs from "dayjs";
+
 const route = useRoute();
 const { id } = route.params;
 
@@ -11,10 +13,10 @@ definePageMeta({
 
 <template>
   <ContentWidthContainer>
-    <div>This page requires you to be logged in.</div>
+    <h1 class="text-3xl font-bold">{{ user.name }}</h1>
 
-    <div>User {{ id }}</div>
+    <div>ID: {{ id }}</div>
 
-    <div>{{ user.name }}</div>
+    <div>Joined: {{ dayjs(user.createdAt).format("MMMM D, YYYY") }}</div>
   </ContentWidthContainer>
 </template>

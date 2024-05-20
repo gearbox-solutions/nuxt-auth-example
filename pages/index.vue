@@ -2,6 +2,6 @@
 
 <template>
   <ContentWidthContainer>
-    <div>Home</div>
+    <div>Welcome!</div>
   </ContentWidthContainer>
 </template>

@@ -6,11 +6,30 @@ const loginForm = ref({
   email: "",
   password: "",
 });
+
+const error = ref(null);
+
+async function submitForm() {
+  // clear any previous errors
+  error.value = null;
+
+  // perform the login
+  await $fetch("/api/auth/login", {
+    method: "POST",
+    body: loginForm.value,
+    onResponseError: () => {
+      error.value = "Error logging in";
+    },
+  });
+
+  // we're not using Nuxt Router here so that we can easily trigger a whole page load and get everything refreshed now that the user is logged in
+  window.location.href = "/";
+}
 </script>
 
 <template>
   <ContentWidthContainer>
-    <form action="/api/auth/login" method="post" class="space-y-2">
+    <form class="space-y-2" @submit.prevent="submitForm">
       <div class="space-y-4">
         <LabeledInput v-model="loginForm.email" name="email" id="email" label="Email" />
 
@@ -27,6 +46,8 @@ const loginForm = ref({
       <div class="pt-2">
         <ButtonPrimary type="submit">Login</ButtonPrimary>
       </div>
+
+      <div v-if="error" class="text-red-400">{{ error }}</div>
     </form>
   </ContentWidthContainer>
 </template>

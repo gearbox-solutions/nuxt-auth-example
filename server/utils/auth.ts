@@ -25,6 +25,7 @@ async function getCurrentUser(event) {
   }
 
   const db = await getDatabase();
+  // we're getting the whole user object by default for convenience, but always remove the password
   const result = (await db.select().from(users).where(eq(users.id, session.user.id)).limit(1))?.[0];
   delete result.password;
   return result;
@@ -34,11 +35,15 @@ async function attempt(event: H3Event<Request>, email: string, password: string)
   const db = await getDatabase();
 
   const foundUser = (
-    await db.select({ email: users.email, password: users.password }).from(users).where(eq(users.email, email)).limit(1)
+    await db
+      .select({ id: users.id, name: users.name, email: users.email, password: users.password })
+      .from(users)
+      .where(eq(users.email, email))
+      .limit(1)
   )?.[0];
 
   // compare the password hash
-  if (!foundUser || !bcrypt.compareSync(body.password, password)) {
+  if (!foundUser || !bcrypt.compareSync(password, foundUser.password)) {
     // return an error if the user is not found or the password doesn't match
     throw createError({
       statusCode: 401,

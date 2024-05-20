@@ -10,7 +10,6 @@ export default defineEventHandler(async (event) => {
 
   const user = (await db.select().from(users).where(eq(users.email, body.email)).limit(1))?.[0];
 
-  console.log(user);
   // compare the password hash
   if (!user || !bcrypt.compareSync(body.password, user.password)) {
     throw new Error("Invalid email or password");

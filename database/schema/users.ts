@@ -5,6 +5,5 @@ export default mysqlTable("users", {
   name: varchar("name", { length: 255 }),
   email: varchar("email", { length: 255 }).unique(),
   password: varchar("password", { length: 255 }),
-  createdAt: timestamp("created_at"),
-  updatedAt: timestamp("updated_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
 });

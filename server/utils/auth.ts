@@ -19,6 +19,11 @@ async function login(event: H3Event<Request>, user: UserType) {
 async function getCurrentUser(event) {
   const session = await getUserSession(event);
 
+  // return null if there's no user
+  if (!session.user) {
+    return null;
+  }
+
   const db = await getDatabase();
   const result = (await db.select().from(users).where(eq(users.id, session.user.id)).limit(1))?.[0];
   delete result.password;

@@ -23,7 +23,4 @@ export default defineEventHandler(async (event) => {
   // log the user in as the user that was just created
   const user = (await db.select().from(users).where(eq(users.email, body.email)).limit(1))[0];
   await auth.login(event, user);
-
-  // redirect the user to the home page after logging in
-  await sendRedirect(event, "/", 302);
 });

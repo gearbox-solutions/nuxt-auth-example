@@ -28,6 +28,9 @@ async function submitForm() {
   // refresh the session status now that the user is logged in
   const { fetch } = useUserSession();
   await fetch();
+  // you may want to use something like Pinia to manage global state of the logged-in user
+  // update Pinia state here...
+
   // take the user to the auth-only users index page now that they're logged in
   await navigateTo("/users");
 

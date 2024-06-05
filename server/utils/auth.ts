@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 
 // Logs the user in as the given user model
 async function login(event: H3Event<Request>, user: UserType) {
-  await setUserSession(event, {
+  await replaceUserSession(event, {
     user: {
       id: user.id,
       name: user.name,

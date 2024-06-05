@@ -14,16 +14,25 @@ async function submitForm() {
   error.value = null;
 
   // perform the login
-  await $fetch("/api/auth/login", {
-    method: "POST",
-    body: loginForm.value,
-    onResponseError: () => {
-      error.value = "Error logging in";
-    },
-  });
+  try {
+    await $fetch("/api/auth/login", {
+      method: "POST",
+      body: loginForm.value,
+    });
+  } catch (e) {
+    // if there's an error, set the error message and return early
+    error.value = "Error logging in";
+    return;
+  }
 
-  // we're not using Nuxt Router here so that we can easily trigger a whole page load and get everything refreshed now that the user is logged in
-  window.location.href = "/";
+  // refresh the session status now that the user is logged in
+  const { fetch } = useUserSession();
+  await fetch();
+  // take the user to the auth-only users index page now that they're logged in
+  await navigateTo("/users");
+
+  // Alternative - Don't use Nuxt Router here so that we can easily trigger a whole page load and get the whole UI refreshed now that the user is logged in.
+  // window.location.href = "/users";
 }
 </script>
 

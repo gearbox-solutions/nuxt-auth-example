@@ -12,16 +12,34 @@ async function submitForm() {
   error.value = null;
 
   // perform the login
-  await $fetch("/api/register", {
-    method: "POST",
-    body: form.value,
-    onResponseError: () => {
-      error.value = "Error Registering User";
-    },
-  });
+  try {
+    await $fetch("/api/register", {
+      method: "POST",
+      body: form.value,
+      onResponseError: () => {
+        error.value = "Error Registering User";
+      },
+      onResponse: async ({ response }) => {
+        // Alternative - redirect to the home page and trigger your logged-in user UI updates with things like Pinia to manage global state
+        // Alternative - we're not using Nuxt Router here so that we can easily trigger a whole page load and get everything refreshed now that the user is logged in.
+        // window.location.href = "/users";
+      },
+    });
+  } catch (e) {
+    // if there's an error, set the error message and return early
+    error.value = "Error Registering User";
+    return;
+  }
+
+  // refresh the session status now that the user is logged in
+  const { fetch } = useUserSession();
+  await fetch();
+  // take the user to the auth-only users index page now that they're logged in
+  await navigateTo("/users");
 
   // we're not using Nuxt Router here so that we can easily trigger a whole page load and get everything refreshed now that the user is logged in
-  window.location.href = "/";
+  window.location.href = "/users";
+  // navigateTo("/users");
 }
 </script>
 

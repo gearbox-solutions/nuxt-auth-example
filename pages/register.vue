@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import useUserStore from "~/stores/user";
+
+const store = useUserStore();
+
 const form = ref({
   name: "",
   email: "",
@@ -27,6 +31,7 @@ async function submitForm() {
   await fetch();
   // you may want to use something like Pinia to manage global state of the logged-in user
   // update Pinia state here...
+  store.refreshUser();
 
   // take the user to the auth-only users index page now that they're logged in
   await navigateTo("/users");

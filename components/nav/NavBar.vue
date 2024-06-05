@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import ContentWidthContainer from "~/components/ContentWidthContainer.vue";
+import useUserStore from "~/stores/user";
+import { storeToRefs } from "pinia";
 
-const { data: user } = await useFetch("/api/auth/me");
+const store = useUserStore();
+const { user } = storeToRefs(store);
 </script>
 
 <template>

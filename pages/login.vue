@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import ButtonPrimary from "~/components/ButtonPrimary.vue";
+import useUserStore from "~/stores/user";
+
+const store = useUserStore();
 
 const loginForm = ref({
   email: "",
@@ -30,6 +33,7 @@ async function submitForm() {
   await fetch();
   // you may want to use something like Pinia to manage global state of the logged-in user
   // update Pinia state here...
+  await store.refreshUser();
 
   // take the user to the auth-only users index page now that they're logged in
   await navigateTo("/users");

@@ -1,6 +1,6 @@
 # Nuxt 3 + Drizzle Auth Demo
 
-This is very basic demo of using Nuxt 3 with Drizzle as a database to register and authenticate users. The home page is public, while the user lst and detail pages requires authentication.
+This is very basic demo of using Nuxt 3 with Drizzle as a database to register and authenticate users. The home page is public, while the user list and detail pages requires authentication.
 
 Register a new user, then log in to see the user list and details.
 

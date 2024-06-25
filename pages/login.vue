@@ -46,7 +46,7 @@ async function submitForm() {
 <template>
   <ContentWidthContainer>
     <form class="space-y-2" @submit.prevent="submitForm">
-      <LabeledInput v-model="loginForm.email" name="email" id="email" label="Email" />
+      <LabeledInput v-model="loginForm.email" name="email" id="email" label="Email" autocomplete="username" />
 
       <LabeledInput
         v-model="loginForm.password"
@@ -55,6 +55,7 @@ async function submitForm() {
         label="Password"
         type="password"
         required
+        autocomplete="current-password"
       />
 
       <div class="pt-2">

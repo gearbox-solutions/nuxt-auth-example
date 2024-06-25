@@ -7,5 +7,7 @@ export default defineEventHandler(async (event) => {
   return {
     id: user.id,
     name: user.name,
+    // get some additional data not stored in the session as an example
+    email: user.email,
   };
 });

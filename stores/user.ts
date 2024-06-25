@@ -1,12 +1,9 @@
 export default defineStore("user", () => {
-  const user = ref(null);
+  const { data: user, refresh } = useFetch("/api/auth/me");
 
   async function refreshUser() {
-    const response = await $fetch("/api/auth/me");
-    user.value = response;
+    refresh();
   }
-
-  refreshUser();
 
   return { user, refreshUser };
 });

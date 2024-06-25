@@ -22,18 +22,18 @@
     "bcrypt": "^5.1.1",
     "dayjs": "^1.11.11",
     "drizzle-orm": "^0.30.10",
-    "mysql2": "^3.9.7",
+    "mysql2": "^3.10.1",
     "nuxt-auth-utils": "^0.0.24",
     "pinia": "^2.1.7",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue": "^3.4.30",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@gearbox-solutions/eslint-config-gbx": "^1.5.3",
-    "@nuxt/kit": "^3.11.2",
+    "@nuxt/kit": "^3.12.2",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.20.18",
-    "jiti": "^1.21.0",
-    "nuxt": "^3.11.2"
+    "jiti": "^1.21.6",
+    "nuxt": "^3.12.2"
   }
 }
